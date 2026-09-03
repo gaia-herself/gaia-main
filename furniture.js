@@ -23,12 +23,14 @@ async function runFurniture(page) {
       break;
     }
 
-    // 🛍️ Add items to cart — fire each request only after the previous one confirms success.
-    // No artificial delay: the request round-trip itself is the natural pacing.
-    console.log(`📦 Adding ${MAX_CART_ITEMS} items to cart...`);
-    let addedCount = 0;
-    for (let i = 0; i < MAX_CART_ITEMS; i++) {
-      const response = await page.request.post('https://v3.g.ladypopular.com/ajax/mall/cart.php', {
+    // 🛍️ Add items to cart — fire requests in concurrent batches instead of one-by-one.
+    // Each batch is awaited fully before the next batch starts, so a failure stops
+    // things quickly without sending all 100 requests regardless of outcome.
+    const BATCH_SIZE = 10;
+    console.log(`📦 Adding ${MAX_CART_ITEMS} items to cart in batches of ${BATCH_SIZE}...`);
+
+    function addOneItem() {
+      return page.request.post('https://v3.g.ladypopular.com/ajax/mall/cart.php', {
         form: {
           action: 'addToCart',
           mallType: '3',
@@ -42,23 +44,34 @@ async function runFurniture(page) {
           orderType: 'desc'
         }
       });
+    }
 
-      let json;
-      try {
-        json = await response.json();
-      } catch (err) {
-        console.warn(`⚠️ Failed to parse response for item ${i + 1}:`, err.message);
-        break;
+    let addedCount = 0;
+    let stop = false;
+    for (let batchStart = 0; batchStart < MAX_CART_ITEMS && !stop; batchStart += BATCH_SIZE) {
+      const batchLen = Math.min(BATCH_SIZE, MAX_CART_ITEMS - batchStart);
+      const responses = await Promise.all(
+        Array.from({ length: batchLen }, () => addOneItem())
+      );
+
+      for (let j = 0; j < responses.length; j++) {
+        let json;
+        try {
+          json = await responses[j].json();
+        } catch (err) {
+          console.warn(`⚠️ Failed to parse response for item ${batchStart + j + 1}:`, err.message);
+          stop = true;
+          break;
+        }
+
+        if (json?.status !== 1) {
+          console.warn(`⚠️ Failed to add item ${batchStart + j + 1}: ${json?.message || 'unknown error'}`);
+          stop = true;
+          break;
+        }
+
+        addedCount++;
       }
-
-      if (json?.status !== 1) {
-        console.warn(`⚠️ Failed to add item ${i + 1}: ${json?.message || 'unknown error'}`);
-        break;
-      }
-
-      addedCount++;
-      // Loop immediately moves to the next iteration — next request only fires
-      // because this one already resolved successfully above.
     }
 
     if (addedCount === 0) {
