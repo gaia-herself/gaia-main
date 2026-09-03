@@ -23,7 +23,7 @@ const runCars = require('./cars.js');
 const runRaiseStats = require('./RaiseStats.js');
 
 const scripts = [
-  /*{ name: 'Burn Energy', fn: runBurnEnergy, alwaysRun: true },
+  { name: 'Burn Energy', fn: runBurnEnergy, alwaysRun: true },
   { name: 'Claim BP Duel Rewards', fn: runClaimRewards, alwaysRun: false }, //its equally distributing stats, bella doesnt need it
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
   { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' },
@@ -31,8 +31,8 @@ const scripts = [
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
   { name: 'Slots Event', fn: runSlotsEvent, envKey: 'LP_SLOTS_URL' },
   { name: 'Parties', fn: runParties, alwaysRun: true},
-  { name: 'Memory Event', fn: runMemoryEvent, envKey: 'LP_MEMORY_URL' },*/
-  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: true },
+  { name: 'Memory Event', fn: runMemoryEvent, envKey: 'LP_MEMORY_URL' },
+  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: false },
   { name: 'Daily Tasks', fn: runDailyTasks, alwaysRun: true },
   { name: 'Boyfriend Kiss', fn: runBoyfriendKiss, alwaysRun: true },
   { name: 'Guild Show', fn: runGuildShow, alwaysRun: true },
