@@ -32,7 +32,7 @@ const scripts = [
   { name: 'Slots Event', fn: runSlotsEvent, envKey: 'LP_SLOTS_URL' },
   { name: 'Parties', fn: runParties, alwaysRun: true},
   { name: 'Memory Event', fn: runMemoryEvent, envKey: 'LP_MEMORY_URL' },
-  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: false },
+  { name: 'Furniture Script', fn: runFurnitureScript, alwaysRun: true },
   { name: 'Daily Tasks', fn: runDailyTasks, alwaysRun: true },
   { name: 'Boyfriend Kiss', fn: runBoyfriendKiss, alwaysRun: true },
   { name: 'Guild Show', fn: runGuildShow, alwaysRun: true },
