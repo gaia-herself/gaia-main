@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: 📦 Install dependencies
-        run: npm install
+        run: npm ci
 
       # 🟢 Cache Playwright browsers
       - name: Cache Playwright browsers
@@ -40,7 +40,7 @@ jobs:
             ${{ runner.os }}-playwright-
 
       - name: 🌐 Install Playwright browsers
-        run: npx playwright install --with-deps
+        run: npx playwright install chromium --with-deps
 
       - name: 🚀 Run mspc.js script
         run: node mspc.js
