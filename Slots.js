@@ -7,7 +7,7 @@ module.exports = async function runSlotsEvent(page) {
   await page.goto(slotsUrl, { waitUntil: 'domcontentloaded' });
 
   // 🔄 Refresh the page 3 times
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 1; i++) {
     console.log(`🔄 Refreshing slots page (Attempt ${i}/3)...`);
     await page.reload({ waitUntil: 'domcontentloaded' });
     await page.waitForTimeout(30000); // Wait 30 seconds
