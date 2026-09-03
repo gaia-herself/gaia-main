@@ -40,7 +40,8 @@ jobs:
             ${{ runner.os }}-playwright-
 
       - name: 🌐 Install Playwright browsers
-        run: npx playwright install --with-deps
+        # run: npx playwright install --with-deps
+        run: npx playwright install chromium --with-deps
 
       - name: 🚀 Run mspc.js script
         run: node mspc.js
