@@ -7,7 +7,7 @@ async function runFurniture(page) {
   }
 
   const ITEM_PRICE = 260;
-  const MAX_CART_ITEMS = 100;
+  const MAX_CART_ITEMS = 20;
 
   while (true) {
     console.log('🛒 Navigating to cart page...');
@@ -26,7 +26,7 @@ async function runFurniture(page) {
     // 🛍️ Add items to cart — fire requests in concurrent batches instead of one-by-one.
     // Each batch is awaited fully before the next batch starts, so a failure stops
     // things quickly without sending all 100 requests regardless of outcome.
-    const BATCH_SIZE = 10;
+    const BATCH_SIZE = MAX_CART_ITEMS; // fire the whole 20-item cycle as one batch
     console.log(`📦 Adding ${MAX_CART_ITEMS} items to cart in batches of ${BATCH_SIZE}...`);
 
     function addOneItem() {
