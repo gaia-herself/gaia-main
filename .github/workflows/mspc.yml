@@ -20,14 +20,16 @@ jobs:
 
       # 🟢 Cache node_modules
       - name: Cache Node.js dependencies
+        id: npm-cache
         uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('package.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
 
       - name: 📦 Install dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
         run: npm install
 
       # 🟢 Cache Playwright browsers
