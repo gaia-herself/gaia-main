@@ -37,7 +37,7 @@ const scripts = [
   { name: 'Boyfriend Kiss', fn: runBoyfriendKiss, alwaysRun: true },
   { name: 'Guild Show', fn: runGuildShow, alwaysRun: true },
   { name: 'Pet Training', fn: runPetTraining, alwaysRun: true },
-  { name: 'Bridesmaids Tasks', fn: runBridesmaids, alwaysRun: false },
+  { name: 'Bridesmaids Tasks', fn: runBridesmaids, alwaysRun: true },
   { name: 'Apartment + Gifts', fn: runApartmentAndGifts, alwaysRun: true },
   { name: 'Activate Cars', fn: runCars, alwaysRun: true },
   { name: 'Raise stats', fn: runRaiseStats, alwaysRun: true },
