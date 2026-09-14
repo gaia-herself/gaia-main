@@ -22,13 +22,16 @@ const runParties = require('./parties.js');
 const runApartmentAndGifts = require('./apartment-gifts.js');
 const runCars = require('./cars.js');
 const runRaiseStats = require('./RaiseStats.js');
+const runApartment = require('./apartment.js');
+const runGifts = require('./gifts-activation.js');
 
 const scripts = [
   { name: 'Burn Energy', fn: runBurnEnergy, alwaysRun: true },
   { name: 'Claim BP Duel Rewards', fn: runClaimRewards, alwaysRun: false }, //its equally distributing stats, bella doesnt need it
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
   { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' }, // only new teleport events
-  { name: 'Teleport Auto', fn: runTeleport, alwaysRun: true }, // takes care of flashback teleport events automatically
+  { name: 'Teleport Flashback Auto', fn: runTeleport, alwaysRun: true }, // takes care of flashback teleport events automatically
+  { name: 'Gifts Flashback Auto', fn: runGifts, alwaysRun: true },
   { name: 'Solitaire Event', fn: runSolitaireEvent, envKey: 'LP_SOLITAIRE_URL' },
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
   { name: 'Slots Event', fn: runSlotsEvent, envKey: 'LP_SLOTS_URL' },
@@ -43,6 +46,7 @@ const scripts = [
   { name: 'Apartment + Gifts', fn: runApartmentAndGifts, alwaysRun: true },
   { name: 'Activate Cars', fn: runCars, alwaysRun: true },
   { name: 'Raise stats', fn: runRaiseStats, alwaysRun: true },
+  { name: 'Apartment Income', fn: runApartment, alwaysRun: true },
 ];
 
 (async () => {
