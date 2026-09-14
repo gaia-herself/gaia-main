@@ -6,7 +6,8 @@ const DIVIDER = '─────────────────────
 const runBurnEnergy = require('./burn-energy.js');
 const runClaimRewards = require('./claim-BPrewards.js');
 const runFashionMagazine = require('./fashion-magazine.js');
-const runTeleportEvent = require('./tele.js');
+/*const runTeleportEvent = require('./tele.js');    */
+const runTeleport = require('./teleport-auto.js');
 const runSolitaireEvent = require('./solitaire.js');
 const runMapsEvent = require('./maps.js');
 const runSlotsEvent = require('./Slots.js');
@@ -26,7 +27,8 @@ const scripts = [
   { name: 'Burn Energy', fn: runBurnEnergy, alwaysRun: true },
   { name: 'Claim BP Duel Rewards', fn: runClaimRewards, alwaysRun: false }, //its equally distributing stats, bella doesnt need it
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
-  { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' },
+  /*{ name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' },        */
+  { name: 'Teleport Auto', fn: runTeleport, alwaysRun: true },
   { name: 'Solitaire Event', fn: runSolitaireEvent, envKey: 'LP_SOLITAIRE_URL' },
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
   { name: 'Slots Event', fn: runSlotsEvent, envKey: 'LP_SLOTS_URL' },
