@@ -19,7 +19,6 @@ const runGuildShow = require('./guild-show.js');
 const runPetTraining = require('./pet-train.js');
 const runBridesmaids = require('./bridesmaids.js');
 const runParties = require('./parties.js');
-const runApartmentAndGifts = require('./apartment-gifts.js');
 const runCars = require('./cars.js');
 const runRaiseStats = require('./RaiseStats.js');
 const runApartment = require('./apartment.js');
@@ -43,7 +42,6 @@ const scripts = [
   { name: 'Guild Show', fn: runGuildShow, alwaysRun: true },
   { name: 'Pet Training', fn: runPetTraining, alwaysRun: true },
   { name: 'Bridesmaids Tasks', fn: runBridesmaids, alwaysRun: true },
-  { name: 'Apartment + Gifts', fn: runApartmentAndGifts, alwaysRun: true },
   { name: 'Activate Cars', fn: runCars, alwaysRun: true },
   { name: 'Raise stats', fn: runRaiseStats, alwaysRun: true },
   { name: 'Apartment Income', fn: runApartment, alwaysRun: true },
