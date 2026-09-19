@@ -29,7 +29,7 @@ const scripts = [
   { name: 'Claim BP Duel Rewards', fn: runClaimRewards, alwaysRun: false }, //its equally distributing stats, bella doesnt need it
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
   { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' }, // only new teleport events
-  { name: 'Teleport Flashback Auto', fn: runTeleport, alwaysRun: true }, // takes care of flashback teleport events automatically
+  { name: 'Teleport Flashback Auto', fn: runTeleport, alwaysRun: false }, // takes care of flashback teleport events automatically. stopped cuz the initial 3 tries are my own thing.
   { name: 'Gifts Flashback Auto', fn: runGifts, alwaysRun: false },
   { name: 'Solitaire Event', fn: runSolitaireEvent, envKey: 'LP_SOLITAIRE_URL' },
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
