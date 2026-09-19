@@ -30,7 +30,7 @@ const scripts = [
   { name: 'Fashion Magazine', fn: runFashionMagazine, envKey: 'LP_FASHION_MAGAZINE_URL' },
   { name: 'Tele Event', fn: runTeleportEvent, envKey: 'LP_TELEPORT_URL' }, // only new teleport events
   { name: 'Teleport Flashback Auto', fn: runTeleport, alwaysRun: true }, // takes care of flashback teleport events automatically
-  { name: 'Gifts Flashback Auto', fn: runGifts, alwaysRun: true },
+  { name: 'Gifts Flashback Auto', fn: runGifts, alwaysRun: false },
   { name: 'Solitaire Event', fn: runSolitaireEvent, envKey: 'LP_SOLITAIRE_URL' },
   { name: 'Maps Event', fn: runMapsEvent, envKey: 'LP_MAPS_URL' },
   { name: 'Slots Event', fn: runSlotsEvent, envKey: 'LP_SLOTS_URL' },
